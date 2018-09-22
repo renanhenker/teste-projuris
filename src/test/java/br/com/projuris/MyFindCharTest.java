@@ -12,8 +12,8 @@ public class MyFindCharTest {
 		String s2 = "reembolsar";
 
 		MyFindChar myFindChar = new MyFindChar();
-		assertEquals(myFindChar.findChar(s1), 't');
-		assertEquals(myFindChar.findChar(s2), 'm');
+		assertEquals('t', myFindChar.findChar(s1));
+		assertEquals('m', myFindChar.findChar(s2));
 	}
 
 	@Test
@@ -22,9 +22,9 @@ public class MyFindCharTest {
 		String s2 = "";
 		String s3 = null;
 		MyFindChar myFindChar = new MyFindChar();
-		assertEquals(myFindChar.findChar(s1), ' ');
-		assertEquals(myFindChar.findChar(s2), ' ');
-		assertEquals(myFindChar.findChar(s3), ' ');
+		assertEquals(' ', myFindChar.findChar(s1));
+		assertEquals(' ', myFindChar.findChar(s2));
+		assertEquals(' ', myFindChar.findChar(s3));
 	}
 
 }

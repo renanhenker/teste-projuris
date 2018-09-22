@@ -30,5 +30,7 @@ public class MyFindArrayTest {
 		
 		MyFindArray myFindArray = new MyFindArray();
 		assertEquals(-1, myFindArray.findArray(array1, subArray1));
+		assertEquals(-1, myFindArray.findArray(null, subArray1));
+		assertEquals(-1, myFindArray.findArray(array1, null));
 	}
 }

@@ -1,8 +1,5 @@
 package br.com.projuris;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class MyFindChar implements FindCharacter {
 
 	public MyFindChar() {
@@ -14,6 +11,11 @@ public class MyFindChar implements FindCharacter {
 		if(palavra == null ){
 			return ' ';
 		}
+		
+		/*
+		 * A string é convertida em um array do tipo Char para a busca ser feita pelo método lastIndexOf.
+		 * Se o índice do char for o mesmo índice da última ocorrência do mesmo char no array então só existe uma ocorrência.
+		 * */
 		for (char c : palavra.toCharArray()) {
 			if (palavra.indexOf(c) == palavra.lastIndexOf(c)) {
 				return c;
@@ -22,30 +24,5 @@ public class MyFindChar implements FindCharacter {
 
 		return ' ';
 	}
-
-
-
-//	public char findChar1(String word) {
-//
-//		Map<Character, Integer> map = new LinkedHashMap<Character, Integer>();
-//		char c[] = word.toCharArray();
-//
-//		for (char ch : c) {
-//			if (map.containsKey(ch)) {
-//				int count = map.get(ch);
-//				map.put(ch, count + 1);
-//			} else {
-//				map.put(ch, 1);
-//			}
-//		}
-//
-//		for (char ch : c) {
-//			if (map.get(ch) == 1) {
-//				return ch;
-//			}
-//		}
-//
-//		return ' ';
-//	}
 
 }

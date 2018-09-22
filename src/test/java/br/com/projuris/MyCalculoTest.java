@@ -47,10 +47,10 @@ public class MyCalculoTest {
 		MyCalculo myCalculo = new MyCalculo();
 		List<CustoCargo> listaCCargo =  myCalculo.custoPorCargo(listaFuncionarios);
 
-		assertEquals(new BigDecimal("4101.80"), getCustoPorCargo(listaCCargo, "Assistente"));
-		assertEquals(new BigDecimal("24001.20"), getCustoPorCargo(listaCCargo, "Gerente") );
-		assertEquals(new BigDecimal("34000.45"), getCustoPorCargo(listaCCargo, "Diretor"));
-		assertEquals(new BigDecimal("700.4"), getCustoPorCargo(listaCCargo, "Estagiário"));
+		assertEquals(new BigDecimal("4101.80"), myCalculo.getCustoPorCargo(listaCCargo, "Assistente"));
+		assertEquals(new BigDecimal("24001.20"), myCalculo.getCustoPorCargo(listaCCargo, "Gerente") );
+		assertEquals(new BigDecimal("34000.45"), myCalculo.getCustoPorCargo(listaCCargo, "Diretor"));
+		assertEquals(new BigDecimal("700.4"), myCalculo.getCustoPorCargo(listaCCargo, "Estagiário"));
 	}
 
 	@Test
@@ -60,26 +60,9 @@ public class MyCalculoTest {
 		MyCalculo myCalculo = new MyCalculo();
 		List<CustoDepartamento> listaCDepartamento =  myCalculo.custoPorDepartamento(listaFuncionarios);
 
-		assertEquals(new BigDecimal("18001.15"), getCustoPorDepartamento(listaCDepartamento, "Administrativo"));
-		assertEquals(new BigDecimal("19800.9"), getCustoPorDepartamento(listaCDepartamento, "Financeiro"));
-		assertEquals(new BigDecimal("25001.80"), getCustoPorDepartamento(listaCDepartamento, "Jurídico"));
+		assertEquals(new BigDecimal("18001.15"), myCalculo.getCustoPorDepartamento(listaCDepartamento, "Administrativo"));
+		assertEquals(new BigDecimal("19800.9"), myCalculo.getCustoPorDepartamento(listaCDepartamento, "Financeiro"));
+		assertEquals(new BigDecimal("25001.80"), myCalculo.getCustoPorDepartamento(listaCDepartamento, "Jurídico"));
 	}
 	
-	
-	/**
-	 * Método criado para teste
-	 * @param lista
-	 * @param cargo
-	 * @return
-	 */
-	public BigDecimal getCustoPorCargo(List<CustoCargo> lista, String cargo) {
-		return lista.stream().filter(x -> x.getCargo().equals(cargo)).map(CustoCargo::getCusto).reduce(BigDecimal.ZERO,
-				BigDecimal::add);
-	}
-
-	public BigDecimal getCustoPorDepartamento(List<CustoDepartamento> lista, String cargo) {
-		return lista.stream().filter(x -> x.getDepartamento().equals(cargo)).map(CustoDepartamento::getCusto)
-				.reduce(BigDecimal.ZERO, BigDecimal::add);
-	}
-
 }
